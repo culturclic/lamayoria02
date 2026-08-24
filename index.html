@@ -63,6 +63,18 @@
   .btn-primary:active{transform:translateY(2px); box-shadow:0 3px 0 var(--rust-dark);}
   .btn-ghost{background:transparent; color:var(--ink); border-color:var(--ink);}
   .btn-ghost:hover{background:var(--ink); color:var(--bg);}
+  .btn-resumen{
+    background:#E1121A; color:#fff; border-color:#E1121A;
+    box-shadow:0 6px 0 #9A0B10;
+    animation:resumen-pulse 1.8s ease-in-out infinite;
+  }
+  .btn-resumen:hover{box-shadow:0 8px 0 #9A0B10; background:#C60F16; border-color:#C60F16;}
+  .btn-resumen:active{transform:translateY(2px); box-shadow:0 3px 0 #9A0B10;}
+  @keyframes resumen-pulse{
+    0%,100%{box-shadow:0 6px 0 #9A0B10, 0 0 0 0 rgba(225,18,26,.55);}
+    50%{box-shadow:0 6px 0 #9A0B10, 0 0 0 8px rgba(225,18,26,0);}
+  }
+  .nav-actions{display:flex; align-items:center; gap:10px;}
 
   /* ===== NAV ===== */
   header.nav{
@@ -289,7 +301,10 @@
         <div class="brand-sub">Tienda Rural</div>
       </div>
     </div>
-    <a class="btn btn-primary nav-cta" href="https://wa.me/34672907381" target="_blank" rel="noopener">Escribinos</a>
+    <div class="nav-actions">
+      <a class="btn btn-resumen nav-cta" href="https://culturclic.github.io/lamayoria02/la-mayoria-resumen.html" target="_blank" rel="noopener">Resumen</a>
+      <a class="btn btn-primary nav-cta" href="https://wa.me/34672907381" target="_blank" rel="noopener">Escribinos</a>
+    </div>
   </div>
 </header>
 
