@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es-PY">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen del trabajo — La Mayoría · CulturClic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;800;900&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EAE0C4; --bg-card:#F6EFDD; --bg-card-2:#EFE4C4;
+    --ink:#241B14; --ink-soft:#5B4D3B;
+    --rust:#8C2E17; --rust-dark:#6B2110;
+    --green:#1F5C3F; --green-dark:#153F2B;
+    --gold:#C99A3E; --sign-cream:#F2E9CE;
+    --line:rgba(36,27,20,.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Barlow', sans-serif; font-size:16.5px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px; margin:0 auto; padding:0 24px;}
+  h1,h2,h3{font-family:'Bitter', serif; font-weight:800; letter-spacing:-.01em; line-height:1.12;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  .eyebrow{
+    font-family:'Barlow Condensed', sans-serif; font-weight:700;
+    letter-spacing:.14em; text-transform:uppercase; font-size:13.5px;
+    color:var(--rust); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:24px; height:2px; background:var(--rust); display:inline-block;}
+
+  /* ===== BANNER MUESTRA ===== */
+  .banner{
+    background:var(--ink); color:var(--sign-cream);
+    text-align:center; font-family:'Barlow Condensed', sans-serif;
+    font-weight:600; font-size:13.5px; letter-spacing:.03em;
+    padding:10px 16px;
+  }
+  .banner b{color:var(--gold); font-weight:700;}
+
+  /* ===== HEADER ===== */
+  header.top{padding:56px 0 40px; border-bottom:1px solid var(--line);}
+  .brand-row{display:flex; align-items:center; gap:14px; margin-bottom:26px;}
+  .brand-mark{
+    width:46px; height:46px; border-radius:50%; background:var(--rust); color:var(--sign-cream);
+    display:flex; align-items:center; justify-content:center; font-family:'Bitter',serif; font-weight:900; font-size:17px;
+    border:2px solid var(--ink);
+  }
+  .brand-row .name{font-family:'Bitter', serif; font-weight:800; font-size:19px; line-height:1;}
+  .brand-row .sub{font-family:'Barlow Condensed', sans-serif; font-size:11px; letter-spacing:.18em; color:var(--ink-soft); text-transform:uppercase;}
+  header.top h1{font-size:clamp(30px,5vw,42px); max-width:20ch; margin-bottom:14px;}
+  header.top p.lead{font-size:18px; color:var(--ink-soft); max-width:58ch;}
+
+  /* ===== INTRO NOTE ===== */
+  .note{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--bg-card); border:1px solid var(--line); border-radius:14px;
+    padding:24px 26px; margin:40px 0;
+  }
+  .note svg{flex:0 0 auto; width:28px; height:28px; color:var(--rust); margin-top:2px;}
+  .note p{font-size:15.5px; color:var(--ink-soft);}
+  .note p b{color:var(--ink);}
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:44px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{margin-bottom:26px;}
+  .section-head h2{font-size:26px; margin-top:10px;}
+  .section-head p{color:var(--ink-soft); margin-top:8px; font-size:15.5px; max-width:60ch;}
+
+  /* ===== META GRID (tipo de web) ===== */
+  .meta-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .meta-item{background:var(--bg-card); border:1px solid var(--line); border-radius:12px; padding:18px;}
+  .meta-item .k{font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:.05em; text-transform:uppercase; font-size:12px; color:var(--rust); margin-bottom:6px;}
+  .meta-item .v{font-family:'Bitter', serif; font-weight:800; font-size:19px;}
+
+  /* ===== REFERENCIAS ===== */
+  .ref-list{display:flex; flex-direction:column; gap:12px;}
+  .ref-item{
+    display:flex; align-items:center; gap:14px;
+    background:var(--bg-card); border:1px solid var(--line); border-radius:12px; padding:16px 18px;
+  }
+  .ref-item .ic{
+    flex:0 0 auto; width:38px; height:38px; border-radius:8px; background:var(--gold);
+    display:flex; align-items:center; justify-content:center; color:var(--ink);
+  }
+  .ref-item .ic svg{width:19px; height:19px;}
+  .ref-item .t{font-weight:600; font-size:15.5px;}
+  .ref-item .d{font-size:13.5px; color:var(--ink-soft);}
+
+  /* ===== PALETA ===== */
+  .swatch-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .swatch{border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--bg-card);}
+  .swatch .chip{height:88px;}
+  .swatch .info{padding:14px 16px;}
+  .swatch .name{font-family:'Bitter', serif; font-weight:700; font-size:15.5px; margin-bottom:3px;}
+  .swatch .role{font-size:12.5px; color:var(--ink-soft); margin-bottom:8px;}
+  .swatch .hex{font-size:13px; color:var(--ink-soft);}
+
+  /* ===== DESGLOSE DE SECCIONES (timeline vertical) ===== */
+  .flow{position:relative; padding-left:36px;}
+  .flow::before{content:""; position:absolute; left:11px; top:6px; bottom:6px; width:2px; background:var(--line);}
+  .flow-item{position:relative; padding-bottom:30px;}
+  .flow-item:last-child{padding-bottom:0;}
+  .flow-item::before{
+    content:""; position:absolute; left:-36px; top:2px; width:24px; height:24px; border-radius:50%;
+    background:var(--rust); border:3px solid var(--bg);
+  }
+  .flow-num{
+    position:absolute; left:-36px; top:2px; width:24px; height:24px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Barlow Condensed', sans-serif; font-weight:700; font-size:12px; color:var(--sign-cream);
+  }
+  .flow-item h3{font-size:18px; margin-bottom:4px;}
+  .flow-item .tag{
+    display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:.05em;
+    text-transform:uppercase; font-size:11px; color:var(--green); background:rgba(31,92,63,.1);
+    padding:2px 8px; border-radius:20px; margin-bottom:8px;
+  }
+  .flow-item p{font-size:15px; color:var(--ink-soft); max-width:60ch;}
+
+  footer{padding:36px 24px 46px; text-align:center; font-size:13.5px; color:var(--ink-soft); font-family:'Barlow Condensed', sans-serif; letter-spacing:.03em;}
+
+  @media (max-width: 720px){
+    .meta-grid{grid-template-columns:repeat(2,1fr);}
+    .swatch-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width: 480px){
+    .swatch-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">📋 <b>Resumen de trabajo</b> — documento interno de CulturClic para acompañar la muestra enviada al cliente</div>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand-row">
+      <div class="brand-mark">LM</div>
+      <div>
+        <div class="name">La Mayoría</div>
+        <div class="sub">Tienda Rural</div>
+      </div>
+    </div>
+    <h1>Resumen del trabajo realizado</h1>
+    <p class="lead">Landing page de muestra para La Mayoría — Tienda Rural, preparada por CulturClic.</p>
+  </header>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <p><b>Esto se hizo rápido porque ya tenemos el proceso y la experiencia rodada</b> — no partimos de cero: reutilizamos una estructura de landing que ya dominamos y la adaptamos por completo al contenido real de La Mayoría. Aun así, <b>esto es una muestra</b>: no sustituye al brief cerrado con el cliente, y todavía puede cambiar en textos, estructura, colores o funcionalidades una vez confirmemos los detalles con él.</p>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Tipo de proyecto</div>
+      <h2>Qué es esta muestra</h2>
+    </div>
+    <div class="meta-grid">
+      <div class="meta-item"><div class="k">Formato</div><div class="v">Landing page</div></div>
+      <div class="meta-item"><div class="k">Nº de secciones</div><div class="v">8 bloques</div></div>
+      <div class="meta-item"><div class="k">Adaptación móvil</div><div class="v">100% responsive</div></div>
+      <div class="meta-item"><div class="k">Estado</div><div class="v">Muestra / demo</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Fuentes usadas</div>
+      <h2>De dónde salió el contenido</h2>
+      <p>Todo el texto, categorías, servicios y datos de contacto de la landing se tomaron directamente de lo que nos compartió el cliente — no se inventó información.</p>
+    </div>
+    <div class="ref-list">
+      <div class="ref-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"/><path d="M14 2v6h6M9 13h6M9 17h6M9 9h1"/></svg></div>
+        <div>
+          <div class="t">CATALOGO_LA_MAYORIA_GPISA.pdf</div>
+          <div class="d">Catálogo de rubros, categorías, marcas/proveedores y servicios de asesoramiento agropecuario</div>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></div>
+        <div>
+          <div class="t">instagram.com/lamayoriatiendarural</div>
+          <div class="d">Referencia de tono de marca y presencia en redes, compartida por el cliente vía Taplink</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Identidad visual</div>
+      <h2>Paleta de colores usada</h2>
+      <p>Concepto "cartel de ruta": colores del campo paraguayo (tierra, cuero, hierro de marcar) en vez de la paleta genérica que se ve en cualquier plantilla de IA.</p>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="chip" style="background:#EAE0C4;"></div>
+        <div class="info"><div class="name">Polvo de camino</div><div class="role">Fondo principal</div><div class="hex mono">#EAE0C4</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#241B14;"></div>
+        <div class="info"><div class="name">Cuero quemado</div><div class="role">Texto principal</div><div class="hex mono">#241B14</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#8C2E17;"></div>
+        <div class="info"><div class="name">Hierro de marcar</div><div class="role">Acento / botones</div><div class="hex mono">#8C2E17</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#1F5C3F;"></div>
+        <div class="info"><div class="name">Pasto seco</div><div class="role">Franja de servicios</div><div class="hex mono">#1F5C3F</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#C99A3E;"></div>
+        <div class="info"><div class="name">Sol del mediodía</div><div class="role">Detalles / highlights</div><div class="hex mono">#C99A3E</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#F6EFDD; border-bottom:1px solid var(--line);"></div>
+        <div class="info"><div class="name">Crema de cartel</div><div class="role">Tarjetas / superficies</div><div class="hex mono">#F6EFDD</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Recorrido de la página</div>
+      <h2>Qué hay en cada sección, de arriba a abajo</h2>
+      <p>Así está organizada la landing tal como la ve un visitante al entrar, deslizando hacia abajo:</p>
+    </div>
+    <div class="flow">
+
+      <div class="flow-item">
+        <div class="flow-num mono" style="background:var(--ink-soft);">i</div>
+        <span class="tag">Aviso</span>
+        <h3>Barra de "muestra"</h3>
+        <p>Franja superior que aclara que es una demo sin brief cerrado, con el logo de CulturClic — solo está en esta versión de muestra, no iría en la web final.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-num mono">1</div>
+        <span class="tag">Menú</span>
+        <h3>Cabecera con marca y botón de WhatsApp</h3>
+        <p>Logo de La Mayoría a la izquierda y un botón fijo de "Escribinos" siempre visible arriba, para que contactar sea posible desde cualquier punto de la página.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-num mono">2</div>
+        <span class="tag">Portada</span>
+        <h3>Hero — primera pantalla</h3>
+        <p>Título principal ("Todo lo que tu campo necesita, en un solo lugar"), bajada de texto, botón directo a WhatsApp, y tres cifras rápidas (9 rubros, +40 marcas, asesoramiento incluido) para transmitir confianza de entrada.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-num mono">3</div>
+        <span class="tag">Catálogo</span>
+        <h3>Rubros — carrusel de 9 categorías</h3>
+        <p>Tarjetas deslizables con cada rubro del catálogo (Insumos Veterinarios, Agroquímicos, Semillas, Indumentaria, Repuestos, Proveeduría, Nutrición Animal, Electrodomésticos, Ferretería), con sus categorías destacadas y un botón que abre WhatsApp con un mensaje ya escrito según el rubro.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-num mono">4</div>
+        <span class="tag">Diferencial</span>
+        <h3>Servicios de Asesoramiento Agropecuario</h3>
+        <p>Franja destacada en verde que separa a La Mayoría de una ferretería común: diagnóstico de preñez, planes de vacunación, auditoría ganadera, GPS, drones, energía solar y gestión en Senacsa.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-num mono">5</div>
+        <span class="tag">Confianza</span>
+        <h3>Tira de marcas</h3>
+        <p>Listado en movimiento con las marcas y proveedores con los que trabajan (Bayer, MSD, Michelin, Stihl, Shell, entre otras), tomado del catálogo.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-num mono">6</div>
+        <span class="tag">Ubicación</span>
+        <h3>Cómo llegar y horarios</h3>
+        <p>Dirección real (Ruta Py 03, Loma Pyta - Asunción), teléfonos y correo, junto a una tarjeta de horario de atención (a confirmar con el cliente).</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-num mono">7</div>
+        <span class="tag">Cierre</span>
+        <h3>Contacto final</h3>
+        <p>Último llamado a la acción antes de terminar la página: botón de WhatsApp y enlaces a Instagram, Facebook y email.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-num mono">8</div>
+        <span class="tag">Pie</span>
+        <h3>Footer</h3>
+        <p>Nombre legal (Grupo Pecuario Inversiones S.A.) y ubicación, en una línea simple de cierre.</p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  CulturClic — Resumen de trabajo para La Mayoría · Tienda Rural
+</footer>
+
+</body>
+</html>
